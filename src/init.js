@@ -25,9 +25,30 @@ $(document).ready(function() {
     var dancer = new dancerMakerFunction(
       $('body').height() * Math.random(),
       $('body').width() * Math.random(),
-      Math.random() * 1000
+      Math.random() * (2000 - 500) + 500
+      // Math.random() * 1000
     );
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
+
+  $('.lineUpButton').on('click', function(event) {
+    // iterate over global dancer array
+    for (var i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].lineUp();
+    }
+  });
+
+  // unlineup button/functionality - need to know how many of each dancer
+
+  $('.unLineButton').on('click', function(event) {
+    for (var i = 0; i < window.dancers.length; i++) {
+      let newHeight = $('body').height() * Math.random();
+      let newWidth = $('body').width() * Math.random();
+      window.dancers[i].setPosition(newHeight, newWidth);
+    }
+  });
+  // delete dancers (clears the dance floor)
+
 });
 
