@@ -5,7 +5,7 @@ describe('blinkyDancer', function() {
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();
-    blinkyDancer = makeBlinkyDancer(10, 20, timeBetweenSteps);
+    blinkyDancer = new makeBlinkyDancer(10, 20, timeBetweenSteps);
   });
 
   it('should have a jQuery $node object', function() {
@@ -20,9 +20,15 @@ describe('blinkyDancer', function() {
 
   describe('dance', function() {
     it('should call step at least once per second', function() {
+      //console.log(blinkyDancer.step.callCount)
       sinon.spy(blinkyDancer, 'step');
+      console.log(blinkyDancer.step.callCount + 'callCount')
       expect(blinkyDancer.step.callCount).to.be.equal(0);
+      //console.log('k')
+      //console.log(timeBetweenSteps);
+      console.log(clock.tick(timeBetweenSteps) + 'clockTick')
       clock.tick(timeBetweenSteps); // ? it seems an extra tick is necessary...
+      console.log(blinkyDancer.step.callCount + 'callCount')
       clock.tick(timeBetweenSteps);
 
       expect(blinkyDancer.step.callCount).to.be.equal(1);
