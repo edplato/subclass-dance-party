@@ -26,7 +26,6 @@ $(document).ready(function() {
       $('body').height() * Math.random(),
       $('body').width() * Math.random(),
       Math.random() * (2000 - 500) + 500
-      // Math.random() * 1000
     );
     window.dancers.push(dancer);
     $('body').append(dancer.$node);
@@ -49,6 +48,14 @@ $(document).ready(function() {
     }
   });
   // delete dancers (clears the dance floor)
+
+  $('.slidingMegaMan').mouseenter(function() {
+    $('.slidingMegaMan').css('border', '10px solid blue');
+  });
+
+  $('.slidingMegaMan').mouseleave(function() {
+    $('.slidingMegaMan').css('border', '10px solid green');
+  });
 
 });
 

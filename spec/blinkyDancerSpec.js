@@ -5,7 +5,7 @@ describe('blinkyDancer', function() {
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();
-    blinkyDancer = new makeBlinkyDancer(10, 20, timeBetweenSteps);
+    blinkyDancer = new BlinkyDancer(10, 20, timeBetweenSteps);
   });
 
   it('should have a jQuery $node object', function() {
@@ -16,6 +16,14 @@ describe('blinkyDancer', function() {
     sinon.spy(blinkyDancer.$node, 'toggle');
     blinkyDancer.step();
     expect(blinkyDancer.$node.toggle.called).to.be.true;
+  });
+
+  it('should have a top property of 10', function() {
+    expect(blinkyDancer.top).to.be.equal(10);
+  });
+
+  it('should have a left property of 20', function() {
+    expect(blinkyDancer.left).to.be.equal(20);
   });
 
   describe('dance', function() {
