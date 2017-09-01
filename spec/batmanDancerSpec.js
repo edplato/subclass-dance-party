@@ -12,10 +12,10 @@ describe('batmanDancer', function() {
     expect(batmanDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-  it('should have a step function that makes its node blink', function() {
-    sinon.spy(batmanDancer.$node, 'toggle');
+  it('should have a step function that makes it visible on the dancefloor', function() {
+    sinon.spy(batmanDancer.$node, 'on');
     batmanDancer.step();
-    expect(batmanDancer.$node.toggle.called).to.be.true;
+    expect(batmanDancer.$node.on.called).to.be.true;
   });
 
   it('should have a top property of 10', function() {

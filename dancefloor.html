@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Object Dance Party</title>
+    <title>BATMAN MEGAMAN PACMAN PARTY</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="lib/jquery.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
     <script src="src/megamanDancer.js"></script>
-    <script src="src/BatmanDancer.js"></script>
+    <script src="src/batmanDancer.js"></script>
   </head>
   <body>
     <div class="topbar">
-      <span class="title">BATMAN MEGAMAN PACMAN PARTY</span>
+      <span class="title glowPink">BATMAN MEGAMAN PACMAN PARTY</span>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BatmanDancer"><span class="icon icon-bat">XX</span>ADD BATMAN</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer"><span class="icon icon-pac">XX</span>ADD PACMAN</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="MegamanDancer"><span class="icon icon-mega">XX</span>ADD MEGAMAN</a>
+
       <a href="#" class="lineUpButton">LINEUP DANCERS</a>
-      <a href="#" class="unLineButton">RANDOM LOCATION</a>
-      <a href="#" class ='slidingMegaMan'>TurnSlidingDancerBlue</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BatmanDancer">ADD BATMAN</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">ADD PACMAN</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="MegamanDancer">ADD MEGAMAN</a>
-      </div>
+      <a href="#" class="randomButton">RANDOM LOCATION</a>
+      <a href="#" class="glowButton">DANCE</a>
+    </div>
+    <div class="danceText">DANCE</div>
+    <audio volume="0.1" loop>
+      <source src="assets/funkyriff.wav" type="audio/wav">
+    </audio>
     <script src="src/init.js"></script>
   </body>
 </html>

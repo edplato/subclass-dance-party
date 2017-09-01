@@ -7,12 +7,10 @@ BlinkyDancer.prototype = Object.create(Dancer.prototype);
 BlinkyDancer.prototype.constructor = BlinkyDancer;
 
 BlinkyDancer.prototype.step = function() {
-
   Dancer.prototype.step.call(this);
-
   this.$node.toggle();
 };
 
 BlinkyDancer.prototype.lineUp = function() {
-  this.$node.css('left', '110px');
+  this.$node.css('left', '320px');
 };

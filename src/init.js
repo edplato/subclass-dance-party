@@ -23,7 +23,7 @@ $(document).ready(function() {
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
-      $('body').height() * Math.random(),
+      $('body').height() / 1.5 * Math.random(),
       $('body').width() * Math.random(),
       Math.random() * (2000 - 500) + 500
     );
@@ -32,30 +32,33 @@ $(document).ready(function() {
   });
 
   $('.lineUpButton').on('click', function(event) {
-    // iterate over global dancer array
     for (var i = 0; i < window.dancers.length; i++) {
       window.dancers[i].lineUp();
     }
   });
 
-  // unlineup button/functionality - need to know how many of each dancer
+  $('.glowButton').mouseover(function(event) {
+    for (var i = 1; i < window.dancers.length; i++) {
+      let closeDancer1 = window.dancers[i];
+      let closeDancer2 = window.dancers[i - 1];
 
-  $('.unLineButton').on('click', function(event) {
+      let heightCombo = (closeDancer1.top + closeDancer2.top) / 2;
+      let leftCombo = (closeDancer1.left + closeDancer2.left) / 2;
+
+      closeDancer1.setPosition(heightCombo, leftCombo);
+    }
+    $('.danceText').addClass('glowPink');
+    $('audio').trigger('play');
+    setTimeout(function() {
+      $('.danceText').removeClass('glowPink');
+    }, 2050);
+  });
+
+  $('.randomButton').on('click', function(event) {
     for (var i = 0; i < window.dancers.length; i++) {
       let newHeight = $('body').height() * Math.random();
       let newWidth = $('body').width() * Math.random();
       window.dancers[i].setPosition(newHeight, newWidth);
     }
   });
-  // delete dancers (clears the dance floor)
-
-  $('.slidingMegaMan').mouseenter(function() {
-    $('.slidingMegaMan').css('border', '10px solid blue');
-  });
-
-  $('.slidingMegaMan').mouseleave(function() {
-    $('.slidingMegaMan').css('border', '10px solid green');
-  });
-
 });
-

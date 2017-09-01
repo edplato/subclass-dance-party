@@ -14,7 +14,7 @@ Dancer.prototype.step = function() {
 
 Dancer.prototype.setPosition = function(top, left) {
   var styleSettings = {
-    top: top,
+    top: top + 100,
     left: left
   };
   this.$node.css(styleSettings);
